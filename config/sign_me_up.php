@@ -3,7 +3,7 @@
 $config['SignMeUp'] = array(
 	'from' => 'Qoggo.com <no-reply@qoggo.com>',
 	'layout' => 'default',
-	'welcome_subject' => 'Welcome to Qoggo.com %username% using email address %email%',
+	'welcome_subject' => 'Welcome to Qoggo.com',
 	'sendAs' => 'text',
 	'activation_template' => 'activate',
 	'welcome_template' => 'welcome',
