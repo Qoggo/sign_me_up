@@ -70,13 +70,30 @@ class SignMeUpComponent extends Object {
 			$model = $this->controller->modelClass;
 			$this->controller->loadModel($model);
 			$this->controller->{$model}->set($this->controller->data);
+
+			$this->controller->{$model}->setValidationRulesFor('website1.0');
 			if ($this->controller->{$model}->validates()) {
+				
 				if (!empty($activation_field)) {
 					$this->controller->data[$model][$activation_field] = $this->controller->{$model}->generateActivationCode($this->controller->data);
 				} elseif (!empty($useractive_field)) {
 					$this->controller->data[$model][$useractive_field] = true;
 				}
 				if ($this->controller->{$model}->save($this->controller->data, false)) {
+
+					// user is registering as as a business
+					/*if( $this->controller->data['User']['user_type'] == 'business' ) {
+						if( $this->controller->data['Business']['business_already_exists'] == 1) {
+
+						} else {
+							$this->controller->loadModel('Business');
+							$this->controller->Business->setValidationRulesFor('website1.0');
+							if( $this->controller->Business->validates()) {
+								$this->controller->Business->save( $this->controller->data, false);
+							}
+						}
+					}*/
+
 					//If an activation field is supplied send out an email
 					if (!empty($activation_field)) {
 						$this->__sendActivationEmail($this->controller->data[$model]);
