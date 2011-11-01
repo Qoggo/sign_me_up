@@ -81,24 +81,12 @@ class SignMeUpComponent extends Object {
 				}
 				if ($this->controller->{$model}->save($this->controller->data, false)) {
 
-					// user is registering as as a business
-					/*if( $this->controller->data['User']['user_type'] == 'business' ) {
-						if( $this->controller->data['Business']['business_already_exists'] == 1) {
-
-						} else {
-							$this->controller->loadModel('Business');
-							$this->controller->Business->setValidationRulesFor('website1.0');
-							if( $this->controller->Business->validates()) {
-								$this->controller->Business->save( $this->controller->data, false);
-							}
-						}
-					}*/
-
 					//If an activation field is supplied send out an email
 					if (!empty($activation_field)) {
 						$this->__sendActivationEmail($this->controller->data[$model]);
 						if (!$this->RequestHandler->isAjax()) {
-							$this->controller->redirect(array('action' => 'activate'));
+							//$this->controller->redirect(array('action' => 'activate'));
+							$this->controller->redirect($this->Auth->loginAction);
 						} else {
 							return true;
 						}

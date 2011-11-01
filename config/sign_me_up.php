@@ -6,6 +6,7 @@ $config['SignMeUp'] = array(
 	'welcome_subject' => 'Welcome to Qoggo.com',
 	'sendAs' => 'text',
 	'activation_template' => 'activate',
+	'activation_subject' => 'Hi there %username%, please click this link to activate your Qoggo account',
 	'welcome_template' => 'welcome',
 	'password_reset_field' => 'password_reset',
 	'password_reset_template' => 'forgotten_password',
