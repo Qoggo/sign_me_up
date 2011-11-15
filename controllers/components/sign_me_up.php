@@ -2,7 +2,7 @@
 
 class SignMeUpComponent extends Object {
 
-	public $components = array('Session', 'Email', 'Auth', 'RequestHandler');
+	public $components = array('Session', 'Email', 'Auth', 'RequestHandler', 'Backend');
 	public $defaults = array(
 		'activation_field' => 'activation_code',
 		'useractive_field' => 'active',
@@ -71,7 +71,11 @@ class SignMeUpComponent extends Object {
 			$this->controller->loadModel($model);
 			$this->controller->{$model}->set($this->controller->data);
 
+			// set custom validation rules
 			$this->controller->{$model}->setValidationRulesFor('website1.0');
+			// add user to regular users group
+			$this->controller->data['User']['group_id'] = $this->Backend->groupId('regular');
+
 			if ($this->controller->{$model}->validates()) {
 				
 				if (!empty($activation_field)) {
