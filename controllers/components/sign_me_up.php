@@ -73,8 +73,6 @@ class SignMeUpComponent extends Object {
 
 			// set custom validation rules
 			$this->controller->{$model}->setValidationRulesFor('website1.0');
-			// add user to regular users group
-			$this->controller->data['User']['group_id'] = $this->Backend->groupId('regular');
 
 			if ($this->controller->{$model}->validates()) {
 				
