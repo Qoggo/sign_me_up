@@ -14,4 +14,5 @@ $config['SignMeUp'] = array(
 	'new_password_template' => 'new_password',
 	'new_password_subject' => 'Your new password from Qoggo.com',
 	'xMailer' => 'Qoggo.com Email',
+	'contactus_subject' => '%username% submitted a support request',
 );
