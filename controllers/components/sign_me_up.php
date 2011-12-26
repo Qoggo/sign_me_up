@@ -18,8 +18,8 @@ class SignMeUpComponent extends Object {
 		'password_reset_subject' => 'Password Reset Request',
 		'new_password_template' => 'recovered_password',
 		'new_password_subject' => 'Your new Password',
-		'contactus_template' => 'contact_us',
-		'contactus_subject' => 'Someone submitted a contact request for Qoggo.com support',
+		'contact_us_template' => 'contact_us',
+		'contact_us_subject' => 'Someone submitted a contact request for Qoggo.com support',
 	);
 	public $helpers = array('Form', 'Html');
 	public $name = 'SignMeUp';
