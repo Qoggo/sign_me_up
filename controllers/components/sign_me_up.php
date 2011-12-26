@@ -77,7 +77,8 @@ class SignMeUpComponent extends Object {
 			if ($this->controller->{$model}->validates()) {
 				
 				if (!empty($activation_field)) {
-					$this->controller->data[$model][$activation_field] = $this->controller->{$model}->generateActivationCode($this->controller->data);
+					$this->controller->data[$model][$activation_field] = 
+						$this->controller->{$model}->generateActivationCode($this->controller->data);
 				} elseif (!empty($useractive_field)) {
 					$this->controller->data[$model][$useractive_field] = true;
 				}
@@ -87,8 +88,8 @@ class SignMeUpComponent extends Object {
 					if (!empty($activation_field)) {
 						$this->__sendActivationEmail($this->controller->data[$model]);
 						if (!$this->RequestHandler->isAjax()) {
-							//$this->controller->redirect(array('action' => 'activate'));
-							$this->controller->redirect($this->Auth->loginAction);
+							$this->controller->redirect(array('action' => 'activate'));
+							//$this->controller->redirect($this->Auth->loginAction);
 						} else {
 							return true;
 						}
